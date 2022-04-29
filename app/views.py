@@ -11,10 +11,10 @@ def index():
     return render_template('index.html',title=title)
 
 
-@app.route('/news/<news_id>')
-def news(news_id):
+@app.route('/articles/<id>')
+def news(id):
     '''
     returns the news page
     '''
     title = 'Today In Tabs- What you missed!'
-    return render_template('news.html', id=news_id, title=title)
+    return render_template('news.html', id=id, title=title)
