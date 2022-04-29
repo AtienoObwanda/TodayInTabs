@@ -3,9 +3,8 @@ class Config:
     parent config class
     '''
     pass
-ARTICLE_URL = "https://newsapi.org/v2/{}?apiKey={}"
-SOURCE_URL= "https://newsapi.org/v2/everything?sources={}&apiKey={}"
-
+ARTICLE_URL = 'https://newsapi.org/v2/everything?sources={}&apiKey={}'
+SOURCE_URL= 'https://newsapi.org/v2/sources?language=en&category={}&apiKey={}'
     #API_KEY= os.environ.get('NEWS_API_KEY')
 
 
