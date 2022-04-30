@@ -3,20 +3,25 @@ import urllib.request, json
 from .models import Source, Article #classes created earlier
 
 
-#getting apiKey
+
+# Getting api key
 
 api_key = app.config['NEWS_API_KEY']
 
-#getting the articles & news
-article_url = app.config['ARTICLE_BASE_URL']
-source_url = app.config['SOURCE_BASE_URL']
+# Getting the movie url
+source_url = app.config["SOURCE_API_URL"]
+
+#Getting the articles url
+article_url = app.config["ARTICLE_API_URL"]
+
 
 
 def get_sources(category):
     '''
     Function that gets the sources for a given category
     '''
-    get_sources_url = source_url.format(category, api_key)
+    get_sources_url = source_url.format(category,api_key)
+
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
         get_sources_response = json.loads(get_sources_data)
