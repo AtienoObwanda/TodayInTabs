@@ -9,15 +9,15 @@ def index():
     '''
     # Fetching categories ie sports, business and technology:
 
-    technologySource = get_sources('technology')
-    businessSource = get_sources('business')
-    sportSource = get_sources('sports')
+    technologySources = get_sources('technology')
+    businessSources = get_sources('business')
+    sportSources = get_sources('sports')
 
 
     title = 'Today In Tabs- Stay at the top of the headlines...'
 
 
-    return render_template('index.html',title=title, technologySource =technologySource, businessSource = businessSource, sportSource = sportSource)
+    return render_template('index.html',title=title, technology = technologySources, business = businessSources, sport = sportSources)
 
 
 @app.route('/articles/<id>')

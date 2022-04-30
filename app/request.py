@@ -2,8 +2,10 @@ from app import app
 import urllib.request, json
 from .models import Source, Article #classes created earlier
 
+
 #getting apiKey
-api_key = app.config['API_KEY']
+
+api_key = app.config['NEWS_API_KEY']
 
 #getting the articles & news
 article_url = app.config['ARTICLE_BASE_URL']
