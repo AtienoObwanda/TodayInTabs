@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+<!-- Content block -->
+{% block content %}  
+  <div class="container">
+      <div class="row">
+            <h1>Top Business Articles</h1>
+                <ul>
+                    {{ macro.displayArticleList(business)}}
+                </ul>
+      </div>
+      <div class="row">
+            <h1>Top Technology Articles</h1>
+                <ul>
+                    {{ macro.displayArticleList(technology)}}
+                </ul>
+      </div>
+      <div class="row">
+            <h1>Top Sports Articles</h1>
+                <ul>
+                    {{ macro.displayArticleList(sports)}}
+                </ul>
+      </div>
+      <div class="row">
+            <h1>Top Entertainment Articles</h1>
+                <ul>
+                    {{ macro.displayArticleList(entertainment)}}
+                </ul>
+      </div>
+  </div>
+  <!--Footer -->
+  <div >
+       <div class="container-fluid" style="height:130px;background-color: #2F303A">
+        <div class="row justify-content-start">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4">
+                <h1 style="color: #fff">Connect with us</h1>
+                <ul>
+                    <li style="color: #fff">LinkedIn:</li>
+                    <li style="color: #fff">Github:</li>
+                </ul>
+            </div>
+            <div class="col-lg-4">
+                <h1 style="color: #fff">Talk to us</h1>
+                <ul>
+                    <li style="color: #fff">Email: atienoobwanda@gmail.com</li>
+                    <li style="color: #fff"> Phone: +254743068355</li>
+                </ul>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+       </div>
+   </div>
+    <div class="container-fluid" style="height: 40px; color: transparent">
+        <h1 class="text-center"><span style="color: rgba(47, 48, 58, 0.44);"> © 2022 </span> <span style="color:#F652DC">Today In Tabs.</span> <span style="color: rgba(47, 48, 58, 0.44);">All rights reserved.</span> </h1>
+    </div>
+
+{% endblock%}

@@ -1,11 +1,14 @@
 {% macro displayArticleList (article_list) %}
 
     {% for article in article_list %}
-    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 article-card">
-        <div class="card" >
-            <img class="card-img-top" src="{{article.image}}" alt="{{article.title|truncate(10)}}" styles="height:30px">
+    <div class="col-sm-4" style="box-shadow: 0 4px 17px rgba(48, 6, 42, 0.35);
+    transition: all 0.3s ease-in-out; margin: 2%; width: 30rem; ">
+        <div class="card" style="height:280px;">
+          <img class="card-img-top" src="{{url_for('static', filename='inTabs.png')}}" alt="logo" style="height:100px"/>
+            <!-- <img class="card-img-top" src="{{article.image}}" alt="{{article.title|truncate(10)}}" styles="height:30px"> -->
                 <div class="card-body">
                   <h5 class="card-title">{{article.title |truncate(100)}}</h5>
+                  <p class="card-text">Source: {{article.source.name}}</p>
                   <p class="card-text">By: {{article.author}}</p>
                   <a href="/article/{{article.title|truncate(5)}}" class="btn btn-primary">Read More</a>
                 </div>
@@ -17,10 +20,10 @@
 {% endmacro %}
 
 {% macro displaySourceList (source_list) %}
-    <div class="row">
         {% for source in source_list %}
-        <div class="col-md-4">  
-        <div class="card" style="width: 18rem;">
+        <div class="col-sm-4" style="box-shadow: 0 4px 17px rgba(48, 6, 42, 0.35);
+        transition: all 0.3s ease-in-out; margin: 2%; width: 30rem; "> 
+        <div class="card" style="height:130px;">
           <div class="card-body">
             <h5 class="card-title">{{ source.name}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{ source.description |truncate(200)}}</h6>
@@ -29,6 +32,6 @@
         </div>
         </div>
         {% endfor %}    
-        </div>
+    
   
 {% endmacro %}
