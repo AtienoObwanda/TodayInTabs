@@ -51,13 +51,13 @@ def process_results_articles(article_list):
         title = article_item.get('title')
         description = article_item.get('description')
         url = article_item.get('url')
-        urlToImage = article_item.get('urlToImage')
+        image = article_item.get('urlToImage')
         publishedAt = article_item.get('publishedAt')
         content = article_item.get('content')
 
-        if urlToImage:
+        if image:
 
-            article_object = Article(source,author,title,urlToImage,url,description,publishedAt,content)
+            article_object = Article(source,author,title,image,url,description,publishedAt,content)
             article_results.append(article_object)
 
     return article_results  
@@ -89,14 +89,13 @@ def process_results_sources(source_list):
         url = source_item.get('url')
         category = source_item.get('category')
         country = source_item.get('country')
-        language = source_item.get('language')
         if name:    
-            source_object = Source(id,name,description,url,category,country,language)
+            source_object = Source(id,name,description,url,category,country)
             source_results.append(source_object)
     return source_results
 
-def get_article(title):
-    get_article_details_url = article_url.format(title,api_key)
+def get_article(source):
+    get_article_details_url = article_url.format(source,api_key)
     
     with urllib.request.urlopen(get_article_details_url) as url:
         article_details_data = url.read()
@@ -110,11 +109,11 @@ def get_article(title):
             author = article_details_response('author')
             description = article_details_response('description')
             url = article_details_response('url')
-            urlToImage = article_details_response('urlToImage')
+            image = article_details_response('urlToImage')
             publishedAt = article_details_response('publishedAt')
             content= article_details_response('content')
 
-            article_details_object = Article(title,source,author,description,url,urlToImage,publishedAt,content)
+            article_details_object = Article(title,source,author,description,url,image,publishedAt,content)
         
         return article_details_object
 

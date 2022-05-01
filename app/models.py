@@ -2,13 +2,13 @@ class Article:
     '''
     Article class to define articles
     '''
-    def __init__(self,source,author,title,description,url,urlToImage,publishedAt,content):
+    def __init__(self,source,author,title,description,url,image,publishedAt,content):
         self.source = source
         self.author = author
         self.title = title
         self.description = description
         self.url = url
-        self.urlToImage = urlToImage
+        self.image = 'https:/' +image
         self.publishedAt = publishedAt
         self.content = content
 
@@ -18,10 +18,10 @@ class Source:
     """
     Source class to define News Sources
     """
-    def __init__(self,id,name,description,url,category, country,language):
-        self.id= id
+    def __init__(self,id,name,description,url,category, country):
+        self.id = id
         self.name = name
         self.description = description
-        self.url= url
+        self.url = url
         self.category = category
         self.country = country

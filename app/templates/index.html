@@ -2,24 +2,33 @@
 {% import 'macros.html' as macro %}
 <!-- Content block -->
 {% block content %}  
-    <h1>Top Business Articles</h1>
-        <ul>
-            {{ macro.displayArticleList(business)}}
-        </ul>
+  <div class="container">
+      <div class="row">
+            <h1>Top Business Articles</h1>
+                <ul>
+                    {{ macro.displayArticleList(business)}}
+                </ul>
+      </div>
+      <div class="row">
+            <h1>Top Technology Articles</h1>
+                <ul>
+                    {{ macro.displayArticleList(technology)}}
+                </ul>
+      </div>
+      <div class="row">
+            <h1>Top Sports Articles</h1>
+                <ul>
+                    {{ macro.displayArticleList(sports)}}
+                </ul>
+      </div>
+      <div class="row">
+            <h1>Top Entertainment Articles</h1>
+                <ul>
+                    {{ macro.displayArticleList(entertainment)}}
+                </ul>
+      </div>
 
-    <h1>Top Technology Articles</h1>
-        <ul>
-            {{ macro.displayArticleList(technology)}}
-        </ul>
 
-    <h1>Top Sports Articles</h1>
-        <ul>
-            {{ macro.displayArticleList(sports)}}
-        </ul>
-    <h1>Top Entertainment Articles</h1>
-        <ul>
-            {{ macro.displayArticleList(entertainment)}}
-        </ul>
-
+  </div>
 
 {% endblock%}
