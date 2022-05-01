@@ -94,13 +94,48 @@ def process_results_sources(source_list):
             source_object = Source(id,name,description,url,category,country,language)
             source_results.append(source_object)
     return source_results
-  
+
+def get_article(title):
+    get_article_details_url = article_url.format(title,api_key)
+    
+    with urllib.request.urlopen(get_article_details_url) as url:
+        article_details_data = url.read()
+        article_details_response = json.loads(article_details_data)
+
+        article_details_object=None
+
+        if article_details_response:
+            title = article_details_response('title')
+            source=article_details_response('source')
+            author = article_details_response('author')
+            description = article_details_response('description')
+            url = article_details_response('url')
+            urlToImage = article_details_response('urlToImage')
+            publishedAt = article_details_response('publishedAt')
+            content= article_details_response('content')
+
+            article_details_object = Article(title,source,author,description,url,urlToImage,publishedAt,content)
+        
+        return article_details_object
 
 
 
+def get_source(id):
+    get_source_details_url = source_url.format(id,api_key)
+    
+    with urllib.request.urlopen(get_source_details_url) as url:
+        source_details_data = url.read()
+        source_details_response = json.loads(source_details_data)
 
+        source_details_object=None
 
+        if source_details_response:
+            id = source_details_response('id')
+            name = source_details_response('name')
+            description = source_details_response('description')
+            url = source_details_response('url')
+            category = source_details_response('category')
+            country = source_details_response('country')
 
-
-
-
+            source_details_object = Source(id,name,description,url,category,country)
+        return source_details_object
