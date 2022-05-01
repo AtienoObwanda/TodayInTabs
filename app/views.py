@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for
 from app import app
-from .request import get_sources, get_articles
+from .request import get_sources, get_articles,get_article, get_source
 # creating views
 @app.route('/')
 def index():
@@ -35,10 +35,21 @@ def sources():
     return render_template('sources.html',title=title,business=business_sources,technology=technology_sources,
     sports=sports_sources,entertainment=entertainment_sources )
 
-@app.route('/articles/<id>')
-def news(id):
+@app.route('/sources/<id>')
+def source(id):
     '''
     returns the news page
     '''
-    title = 'Today In Tabs- What you missed!'
-    return render_template('news.html', id=id, title=title)
+    source = get_source(id)
+    title = 'Today In Tabs- Top sources!'
+    return render_template('sourceDetails.html',title=title,source=source)
+
+@app.route('/article/<title>')
+def article(title):
+    '''
+    Returns article on new page
+    '''
+    article = get_article(title)
+    pageTitle = 'Today In Tabs- What You missed...'
+
+    return render_template('articleDetails.html',title=pageTitle,article=article)
