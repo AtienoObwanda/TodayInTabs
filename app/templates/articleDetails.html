@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+<!-- Content block -->
+{% block content %}
+<div class="container">
+
+    <!-- Img -->
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{article.urlToImage}}) no-repeat center center">
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
+            <h3>{{ article.title }}</h3>
+
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
