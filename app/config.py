@@ -5,9 +5,9 @@ class Config:
     '''
     pass
 
-    SOURCE_API_URL='https://newsapi.org/v2/sources?language=en&category={}&apiKey={}'
-    ARTICLE_API_URL ='https://newsapi.org/v2/everything?sources={}&apiKey={}'
+    # SOURCE_API_URL='https://newsapi.org/v2/sources?language=en&category={}&apiKey={}'
     ARTICLES_URL='https://newsapi.org/v2/top-headlines?language=en&category={}&apiKey={}'
+    SOURCE_API_URL='https://newsapi.org/v2/top-headlines/sources?category={}&language=en&apiKey={}'
     # API_KEY= os.environ.get('NEWS_API_KEY')
 
 
