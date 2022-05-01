@@ -1,19 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'base.html'%}
 {% import 'macros.html' as macro %}
 
-<h1>TRUSTED SOURCES</h1>
+<!-- Content block -->
+{% block content %}  
+    <h1>TRUSTED SOURCES</h1>
 
-<h1>BUSINESS</h1>
-<ul>
-    {{ macro.displaySourceList(business)}}
-</ul>
+    <h1>BUSINESS</h1>
+    <ul>
+        {{ macro.displaySourceList(business)}}
+    </ul>
 
-<h1>Tech</h1>
-<ul>
-    {{ macro.displaySourceList(technology)}}
-</ul>
+    <h1>Tech</h1>
+    <ul>
+        {{ macro.displaySourceList(technology)}}
+    </ul>
 
-<h1>SPORTS</h1>
-<ul>
-    {{ macro.displaySourceList(sports)}}
-</ul>
+    <h1>SPORTS</h1>
+    <ul>
+        {{ macro.displaySourceList(sports)}}
+    </ul>
+{% endblock%}

@@ -1,30 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'base.html'%}
 {% import 'macros.html' as macro %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% block styles %}
-    {{ super() }}
-    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
-    {% endblock %}
-</head>
+<!-- Content block -->
+{% block content %}  
+    <h1>Top Business Articles</h1>
+        <ul>
+            {{ macro.displayArticleList(business)}}
+        </ul>
 
-<h1>Top Business Articles</h1>
-<ul>
-    {{ macro.displayArticleList(business)}}
-</ul>
+    <h1>Top Technology Articles</h1>
+        <ul>
+            {{ macro.displayArticleList(technology)}}
+        </ul>
 
-<h1>Top Technology Articles</h1>
-<ul>
-    {{ macro.displayArticleList(technology)}}
-</ul>
+    <h1>Top Sports Articles</h1>
+        <ul>
+            {{ macro.displayArticleList(sports)}}
+        </ul>
+    <h1>Top Entertainment Articles</h1>
+        <ul>
+            {{ macro.displayArticleList(entertainment)}}
+        </ul>
 
-<h1>Top Sports Articles</h1>
-<ul>
-    {{ macro.displayArticleList(sports)}}
-</ul>
-<h1>Top Entertainment Articles</h1>
-<ul>
-    {{ macro.displayArticleList(entertainment)}}
-</ul>
 
+{% endblock%}

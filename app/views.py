@@ -9,7 +9,6 @@ def index():
     '''
     # Fetching article categories ie sports, business and technology:
     technology_articles = get_articles('technology')
-    # business = get_sources('business')
     sports_articles= get_articles('sports')
     business_articles = get_articles('business')
     entertainment_articles = get_articles('entertainment')
