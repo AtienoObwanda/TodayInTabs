@@ -1,9 +1,11 @@
 from flask import render_template,request,redirect,url_for
-from app import app
+from . import main
 from ..request import get_sources, get_articles,get_article
+
+
 # creating views
 
-@app.route('/')
+@main.route('/')
 def index():
     '''
     Display the top sources for different categories
@@ -20,7 +22,7 @@ def index():
     return render_template('index.html',title=title,business=business_sources,technology=technology_sources,
     sports=sports_sources,entertainment=entertainment_sources,health=health_sources, science=science_sources )
 
-@app.route('/articles/')
+@main.route('/articles/')
 def articles():
     '''
     View root page function for returning index page information
@@ -40,7 +42,7 @@ def articles():
     entertainment=entertainment_articles)
 
 
-@app.route('/source/<id>')
+@main.route('/source/<id>')
 def article(source):
     '''
     returns the news page
