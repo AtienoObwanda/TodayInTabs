@@ -1,4 +1,3 @@
-from app import app
 import urllib.request, json
 from .models import Source, Article #classes created earlier
 
@@ -10,11 +9,10 @@ article_url = None
 # Getting api key
 def configure_request(app):
     global api_key, source_url,articles_url,article_url
-    
     api_key = app.config['NEWS_API_KEY']
-    source_url = app.config["SOURCE_API_URL"]
-    articles_url = app.config["ARTICLES_URL"]
-    article_url = app.config["ARTICLE_BASE_URL"]
+    source_url = app.config['SOURCE_API_URL']
+    articles_url = app.config['ARTICLES_URL']
+    article_url = app.config['ARTICLE_BASE_URL']
 
 
 def get_articles(category):
@@ -42,18 +40,18 @@ def process_results_articles(articles_list):
     '''
     articles_results = []
     for articles_item in articles_list:
-        source = articles_item.get('source')
-        author = articles_item.get('author')
+        image = articles_item.get('urlToImage')
         title = articles_item.get('title')
         description = articles_item.get('description')
+        author = articles_item.get('author')
+        source = articles_item.get('source')
         url = articles_item.get('url')
-        image = articles_item.get('urlToImage')
         date = articles_item.get('publishedAt')
-        content = articles_item.get('content')
+        
 
         if image:
 
-            articles_object = Article(source,author,title,image,url,description,date,content)
+            articles_object = Article(image,title,description,author,source,url,date)
             articles_results.append(articles_object)
 
     return articles_results  
@@ -92,11 +90,11 @@ def process_results_sources(source_list):
 
 
 
-def get_article(sources):
+def get_article(id):
     '''
     Function that gets the json responce to our url request
     '''
-    get_article_url = article_url.format(sources,api_key)
+    get_article_url = article_url.format(id,api_key)
 
     with urllib.request.urlopen(get_article_url) as url:
         get_article_details_data = url.read()
@@ -117,18 +115,17 @@ def process_results_article(article_details_list):
     '''
     article_details_results = []
     for article_item in article_details_list:
-        source = article_item.get('source')
-        author = article_item.get('author')
+        image = article_item.get('urlToImage')
         title = article_item.get('title')
         description = article_item.get('description')
+        author = article_item.get('author')
+        source = article_item.get('source')
         url = article_item.get('url')
-        image = article_item.get('urlToImage')
         date = article_item.get('publishedAt')
-        content = article_item.get('content')
-
+        
         if image:
 
-            article_details_object = Article(source,author,title,image,url,description,date,content)
+            article_details_object = Article(image,title,description,author,source,url,date)
             article_details_results.append(article_details_object)
 
     return article_details_results  
