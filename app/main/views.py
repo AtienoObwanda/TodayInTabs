@@ -43,11 +43,12 @@ def articles():
 
 
 @main.route('/source/<id>')
-def article(source):
+def article(id):
     '''
-    returns the news page
+    view articles function that returns a list of articles on the articles
     '''
-    article_source = get_article(source.name)
-    title = 'Today In Tabs- {id}'
-    return render_template('article.html',title = title, article = article_source)
 
+    article = get_article(id)
+    title = f'Headline {id}'    
+
+    return render_template('article.html',title = title, article = article)

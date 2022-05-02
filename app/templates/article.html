@@ -1,14 +1,17 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro %}
 
+
 {% block content%}
   <div class="container">
-  
+   
+
     <h3 class="text-center" style="font-family: 'Times New Roman', Times, serif; font-size: 30px;">Top Story Headlines</h3>
-            <div class="row">
-              {{ macro.showArticleList(article)}}
-            </div>
-  
+          <div class="row">
+          <ul> 
+            {{ macro.showArticleList(article) }}
+          </ul>
+          </div>
   
   </div>  
   {% endblock%}

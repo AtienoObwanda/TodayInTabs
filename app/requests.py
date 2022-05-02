@@ -110,12 +110,12 @@ def get_article(id):
 
     return article_details_results
 
-def process_results_article(article_details_list):
+def process_results_article(article_list):
     '''
     Function  that processes the article result and transform them to a list of Objects
     '''
     article_details_results = []
-    for article_item in article_details_list:
+    for article_item in article_list:
         image = article_item.get('urlToImage')
         title = article_item.get('title')
         description = article_item.get('description')
@@ -130,4 +130,7 @@ def process_results_article(article_details_list):
             article_details_results.append(article_details_object)
 
     return article_details_results  
+
+
+
 
