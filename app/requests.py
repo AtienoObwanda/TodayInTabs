@@ -8,11 +8,12 @@ article_url = None
 
 # Getting api key
 def configure_request(app):
-    global api_key, source_url,articles_url,article_url
+    global api_key,source_url,articles_url,article_url
     api_key = app.config['NEWS_API_KEY']
     source_url = app.config['SOURCE_API_URL']
     articles_url = app.config['ARTICLES_URL']
     article_url = app.config['ARTICLE_BASE_URL']
+
 
 
 def get_articles(category):
