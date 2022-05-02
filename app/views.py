@@ -38,20 +38,11 @@ def articles():
 
 
 @app.route('/sources/<id>')
-def source(id):
+def article(id):
     '''
     returns the news page
     '''
-    source = get_source(id)
+    article = get_article(id)
     title = 'Today In Tabs- Top sources!'
-    return render_template('sourceDetails.html',title=title,source=source)
+    return render_template('article.html',title = title, article = article)
 
-@app.route('/article/<title>')
-def article(source):
-    '''
-    Returns article on new page
-    '''
-    article = get_article(source)
-    pageTitle = 'Today In Tabs- What You missed...'
-
-    return render_template('articleDetails.html',title=pageTitle,article=article)
