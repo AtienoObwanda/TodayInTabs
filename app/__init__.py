@@ -1,6 +1,6 @@
 # from ensurepip import bootstrap
 from flask import Flask
-from .config import DevConfig
+from ..config import DevConfig
 from flask_bootstrap import Bootstrap
 
 
@@ -14,5 +14,5 @@ app.config.from_pyfile('config.py')
 # Initializingg Flask extension
 bootstrap = Bootstrap(app)
 
-from app import views
-from app import error
+from app.main import views
+from app.main import error
