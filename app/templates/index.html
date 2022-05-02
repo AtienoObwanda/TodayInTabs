@@ -18,35 +18,53 @@
     </div>    
 </div>
 <!--body-->
-    <div class="container">
-
-        <h2 class="text-center" style="font-family: 'Times New Roman', Times, serif;"> TRUSTED SOURCES</h2>
-    
+    <div class="container">        
         <div class="row">
-            <h3 class="text-center" style="font-family: 'Times New Roman', Times, serif;" >Technology News Sources</h3>
+            <h3 class="text-center" style="font-family: 'Times New Roman', Times, serif;">Top Technology News Sources</h3>
        
             <ul>
                 {{ macro.displaySourceList(technology)}}
             </ul>
         </div>
         <div class="row">
-            <h3 class="text-center"style="font-family: 'Times New Roman', Times, serif;"> Business News Sources</h3>
+            <h3 class="text-center"style="font-family: 'Times New Roman', Times, serif;">Top Business News Sources</h3>
                 <ul>
                     {{ macro.displaySourceList(business)}}
                 </ul>
         </div>
-            <div class="row">
-                <h3 class="text-center"style="font-family: 'Times New Roman', Times, serif;">Sports News Sources</h3>
+        <div class="row">
+            <h3 class="text-center"style="font-family: 'Times New Roman', Times, serif;">Top Science News Sources</h3>
+
+            <ul>
+                {{ macro.displaySourceList(science)}}
+            </ul>
+    </div>
+        <div class="row">
+            <h3 class="text-center"style="font-family: 'Times New Roman', Times, serif;">Top Entertainment News Sources</h3>
+
+            <ul>
+                {{ macro.displaySourceList(entertainment)}}
+            </ul>
+    </div>
+        <div class="row">
+                <h3 class="text-center"style="font-family: 'Times New Roman', Times, serif;">Top Sports News Sources</h3>
    
                 <ul>
                     {{ macro.displaySourceList(sports)}}
                 </ul>
-            </div>
+        </div>
+        <div class="row">
+            <h3 class="text-center"style="font-family: 'Times New Roman', Times, serif;">Top Health News Sources</h3>
+
+            <ul>
+                {{ macro.displaySourceList(health)}}
+            </ul>
+        </div>
     </div>  
 <!--Footer -->
 
  <div class="container-fluid" style="height: 40px; color: transparent">
-     <h1 class="text-center"><span style="color: rgba(47, 48, 58, 0.44);"> © 2022 </span> <span style="color:#F652DC">Today In Tabs.</span> <span style="color: rgba(47, 48, 58, 0.44);">All rights reserved.</span> </h1>
+     <h1 class="text-center"style="font-size:18px"><span style="color: rgba(47, 48, 58, 0.44);"> © 2022 </span> <span style="color:#F652DC">Today In Tabs.</span> <span style="color: rgba(47, 48, 58, 0.44);">All rights reserved.</span> </h1>
  </div>
 
 {% endblock%}

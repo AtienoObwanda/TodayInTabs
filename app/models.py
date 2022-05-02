@@ -2,14 +2,14 @@ class Article:
     '''
     Article class to define articles
     '''
-    def __init__(self,source,author,title,description,url,image,publishedAt,content):
+    def __init__(self,source,author,title,description,url,image,date,content):
         self.source = source
         self.author = author
         self.title = title
         self.description = description
         self.url = url
         self.image = image
-        self.publishedAt = publishedAt
+        self.date = date
         self.content = content
 
 

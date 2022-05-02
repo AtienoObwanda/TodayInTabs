@@ -12,55 +12,51 @@ api_key = app.config['NEWS_API_KEY']
 source_url = app.config["SOURCE_API_URL"]
 
     # Getting the articles url
-article_url = app.config["ARTICLES_URL"]
-    # Getting articles
 articles_url = app.config["ARTICLES_URL"]
+    # Getting articles
+article_url = app.config["ARTICLE_BASE_URL"]
 
 
 def get_articles(category):
     '''
     Function that gets the json responce to our url request
     '''
-    get_articles_url = article_url.format(category,api_key)
+    get_articles_url = articles_url.format(category,api_key)
 
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
         get_articles_response = json.loads(get_articles_data)
 
-        article_results = None
+        articles_results = None
 
         if get_articles_response['articles']:
-            article_results_list = get_articles_response['articles']
-            article_results = process_results_articles(article_results_list)
+            articles_results_list = get_articles_response['articles']
+            articles_results = process_results_articles(articles_results_list)
 
 
-    return article_results
+    return articles_results
 
-def process_results_articles(article_list):
+def process_results_articles(articles_list):
     '''
     Function  that processes the article result and transform them to a list of Objects
-    Args:
-        article_list: A list of dictionaries that contain article details
-    Returns :
-        article_results: A list of article objects
     '''
-    article_results = []
-    for article_item in article_list:
-        source = article_item.get('source')
-        author = article_item.get('author')
-        title = article_item.get('title')
-        description = article_item.get('description')
-        url = article_item.get('url')
-        image = article_item.get('urlToImage')
-        publishedAt = article_item.get('publishedAt')
-        content = article_item.get('content')
+    articles_results = []
+    for articles_item in articles_list:
+        source = articles_item.get('source')
+        author = articles_item.get('author')
+        title = articles_item.get('title')
+        description = articles_item.get('description')
+        url = articles_item.get('url')
+        image = articles_item.get('urlToImage')
+        date = articles_item.get('publishedAt')
+        content = articles_item.get('content')
 
         if image:
 
-            article_object = Article(source,author,title,image,url,description,publishedAt,content)
-            article_results.append(article_object)
+            articles_object = Article(source,author,title,image,url,description,date,content)
+            articles_results.append(articles_object)
 
-    return article_results  
+    return articles_results  
 
 def get_sources(category):
     '''
@@ -94,47 +90,46 @@ def process_results_sources(source_list):
             source_results.append(source_object)
     return source_results
 
-def get_article(source):
-    get_article_details_url = article_url.format(source,api_key)
-    
-    with urllib.request.urlopen(get_article_details_url) as url:
-        article_details_data = url.read()
-        article_details_response = json.loads(article_details_data)
-
-        article_details_object=None
-
-        if article_details_response:
-            title = article_details_response('title')
-            source=article_details_response('source')
-            author = article_details_response('author')
-            description = article_details_response('description')
-            url = article_details_response('url')
-            image = article_details_response('urlToImage')
-            publishedAt = article_details_response('publishedAt')
-            content= article_details_response('content')
-
-            article_details_object = Article(title,source,author,description,url,image,publishedAt,content)
-        
-        return article_details_object
 
 
+def get_article(sources):
+    '''
+    Function that gets the json responce to our url request
+    '''
+    get_article_url = article_url.format(sources,api_key)
 
-def get_source(id):
-    get_source_details_url = source_url.format(id,api_key)
-    
-    with urllib.request.urlopen(get_source_details_url) as url:
-        source_details_data = url.read()
-        source_details_response = json.loads(source_details_data)
+    with urllib.request.urlopen(get_article_url) as url:
+        get_article_details_data = url.read()
+        get_article_details_response = json.loads(get_article_details_data)
 
-        source_details_object=None
+        article_details_results = None
 
-        if source_details_response:
-            id = source_details_response('id')
-            name = source_details_response('name')
-            description = source_details_response('description')
-            url = source_details_response('url')
-            category = source_details_response('category')
-            country = source_details_response('country')
+        if get_article_details_response['articles']:
+            article_details_results_list = get_article_details_response['articles']
+            article_details_results = process_results_articles(article_details_results_list)
 
-            source_details_object = Source(id,name,description,url,category,country)
-        return source_details_object
+
+    return article_details_results
+
+def process_results_article(article_details_list):
+    '''
+    Function  that processes the article result and transform them to a list of Objects
+    '''
+    article_details_results = []
+    for article_item in article_details_list:
+        source = article_item.get('source')
+        author = article_item.get('author')
+        title = article_item.get('title')
+        description = article_item.get('description')
+        url = article_item.get('url')
+        image = article_item.get('urlToImage')
+        date = article_item.get('publishedAt')
+        content = article_item.get('content')
+
+        if image:
+
+            article_details_object = Article(source,author,title,image,url,description,date,content)
+            article_details_results.append(article_details_object)
+
+    return article_details_results  
+
