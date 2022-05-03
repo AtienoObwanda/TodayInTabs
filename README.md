@@ -7,7 +7,7 @@
 ****
 **Today in Tabs** is a web application that uses News API to  list  news articles from various sources. Always late for news? You can now catch up!<br />
 
-**Live link:**  *...* <br />
+**Live link:**  *https://todayintabs.herokuapp.com/* <br />
 
 
 **Setup/Installation Requirements** 
