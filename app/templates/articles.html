@@ -4,33 +4,33 @@
 {% block content %}  
   <div class="container">
       <div class="row">
-            <h1>Top Business Articles</h1>
+            <h1 class="text-center" style="font-family: 'Times New Roman', Times, serif; font-size: 30px;">Top Business Articles</h1>
                 <ul>
                     {{ macro.displayArticleList(business)}}
                 </ul>
       </div>
       <div class="row">
-            <h1>Top Technology Articles</h1>
+            <h1 class="text-center" style="font-family: 'Times New Roman', Times, serif; font-size: 30px;">Top Technology Articles</h1>
                 <ul>
                     {{ macro.displayArticleList(technology)}}
                 </ul>
       </div>
       <div class="row">
-            <h1>Top Sports Articles</h1>
+            <h1 class="text-center" style="font-family: 'Times New Roman', Times, serif; font-size: 30px;">Top Sports Articles</h1>
                 <ul>
                     {{ macro.displayArticleList(sports)}}
                 </ul>
       </div>
       <div class="row">
-            <h1>Top Entertainment Articles</h1>
+            <h1 class="text-center" style="font-family: 'Times New Roman', Times, serif; font-size: 30px;">Top Entertainment Articles</h1>
                 <ul>
                     {{ macro.displayArticleList(entertainment)}}
                 </ul>
       </div>
   </div>
   <!--Footer -->
-    <div class="container-fluid" style="background-color: transparent">
-        <h1 class="text-center"><span style="color: rgba(47, 48, 58, 0.44);"> © 2022 </span> <span style="color:#F652DC">Today In Tabs.</span> <span style="color: rgba(47, 48, 58, 0.44);">All rights reserved.</span> </h1>
-    </div>
+  <div class="container-fluid" style="background-color: transparent">
+    <h1 class="text-center" style="font-size: 20px;"><span style="color: rgba(47, 48, 58, 0.44);"> © 2022 </span> <span style="color:#F652DC">Today In Tabs.</span> <span style="color: rgba(47, 48, 58, 0.44);">All rights reserved.</span> </h1>
+</div>
 
 {% endblock%}

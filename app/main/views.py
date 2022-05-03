@@ -49,6 +49,6 @@ def article(id):
     '''
 
     article = get_article(id)
-    title = f'Headline {id}'    
+    title = f'Today In Tabs |  {id}'    
 
-    return render_template('article.html',title = title, article = article)
+    return render_template('article.html', title = title, article = article)
